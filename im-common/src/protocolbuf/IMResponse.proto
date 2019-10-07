@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package cn.tzqwz.common.im.protocolbuf;
+
+option java_package  = "cn.tzqwz.common.im.protocolbuf";
+option java_outer_classname  = "IMResponseProto";
+
+
+message IMResponse{
+    optional  string  responseid = 1;
+    optional  int32 restype = 2;
+    optional  string resmsg = 3;
+}

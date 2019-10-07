@@ -1,0 +1,8 @@
+##客户端web服务端口
+server:
+  port: 8100
+###IM服务器地址及端口号
+im:
+  server:
+    address: 127.0.0.1
+    port: 10234

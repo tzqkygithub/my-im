@@ -1,0 +1,21 @@
+##Web服务程序端口号
+server:
+  port: 8200
+###IM服务的名称
+spring:
+  application:
+    name: im-server
+###IM通信服务器端端口号
+im:
+  server:
+    port: 10234
+##zookeeper配置信息
+zk:
+  ###连接地址
+  connect:
+    address: 127.0.0.1:2181
+  ###连接超时时间
+    timeout: 15000
+  ###路由节点信息
+  root:
+    node: /route

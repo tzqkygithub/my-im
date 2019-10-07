@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package cn.tzqwz.common.im.protocolbuf;
+
+option java_package  = "cn.tzqwz.common.im.protocolbuf";
+option java_outer_classname  = "IMRequestProto";
+
+
+message IMRequest{
+    optional  string  requestid = 1;
+    optional  int32 reqtype = 2;
+    optional  string reqmsg = 3;
+}

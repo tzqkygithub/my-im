@@ -1,0 +1,17 @@
+###web服务端口
+server:
+  port: 8400
+###web服务名称
+spring:
+  application:
+    name: im-forward-route
+###zookeeper配置信息
+zk:
+  ###连接地址
+  connect:
+    address: 127.0.0.1:2181
+    ###连接超时时间
+    timeout: 15000
+  ###路由节点信息
+  root:
+    node: /route

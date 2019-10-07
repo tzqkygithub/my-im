@@ -1,6 +1,7 @@
 package cn.tzqwz.runner;
 
 
+import cn.tzqwz.cache.IMServerCache;
 import cn.tzqwz.config.ApplicationConfig;
 import cn.tzqwz.zk.ZKUtils;
 import org.slf4j.Logger;
@@ -21,9 +22,14 @@ public class RouteRunner implements ApplicationRunner {
     @Autowired
     private ZKUtils zkUtils;
 
+    @Autowired
+    private IMServerCache imServerCache;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         String zkRootNode = applicationConfig.getZkRootNode();
+        //获取根节点下面所有的服务节点添加到缓存中
+        imServerCache.findZKServerNode(zkRootNode);
         //给根节点注册监听事件
         LOGGER.info("根节点[{}]注册监听事件",zkRootNode);
         zkUtils.subscribeEvent(zkRootNode);

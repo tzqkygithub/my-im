@@ -1,5 +1,6 @@
 package cn.tzqwz.zk;
 
+import cn.tzqwz.cache.IMServerCache;
 import com.alibaba.fastjson.JSON;
 import org.I0Itec.zkclient.IZkChildListener;
 import org.I0Itec.zkclient.ZkClient;
@@ -17,6 +18,9 @@ public class ZKUtils {
 
     @Autowired
     private ZkClient zkClient;
+
+    @Autowired
+    private IMServerCache imServerCache;
 
     /**
      * 获取指定父节点的子节点
@@ -37,6 +41,7 @@ public class ZKUtils {
             @Override
             public void handleChildChange(String parentPath, List<String> currentChilds) throws Exception {
                 LOGGER.info("清除/更新本地缓存 parentPath=【{}】,currentChilds=【{}】", parentPath,currentChilds.toString());
+                imServerCache.updateCache(currentChilds);
             }
         });
     }

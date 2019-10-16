@@ -33,6 +33,6 @@ public class RouteRunner implements ApplicationRunner {
         //给根节点注册监听事件
         LOGGER.info("根节点[{}]注册监听事件",zkRootNode);
         zkUtils.subscribeEvent(zkRootNode);
-        LOGGER.info("根节点[{}]注册监听事件成功");
+        LOGGER.info("根节点[{}]注册监听事件成功",zkRootNode);
     }
 }

@@ -6,3 +6,5 @@ im:
   server:
     address: 127.0.0.1
     port: 10234
+
+##路由地址

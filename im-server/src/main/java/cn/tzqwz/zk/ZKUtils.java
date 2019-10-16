@@ -25,7 +25,8 @@ public class ZKUtils {
         //判断根节点是否存在
         boolean exists = zkClient.exists(applicationConfig.getZkRootNode());
         if(exists){
-            //根节点存在不需要重新创建
+            //根节
+            // 点存在不需要重新创建
             return applicationConfig.getZkRootNode();
         }
         //不存在根节点则创建根节点

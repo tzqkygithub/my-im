@@ -51,4 +51,6 @@ public class BaseResponse<T> {
         this.retData = retData;
         this.reqUserId = reqUserId;
     }
+
+    public BaseResponse(){}
 }

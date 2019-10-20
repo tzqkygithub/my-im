@@ -14,6 +14,11 @@ public class BaseController<T> {
         return setResult(code, msg, null,reqUserId);
     }
 
+
+    public BaseResponse<T> setResultError(Integer code, String msg,Object data,String reqUserId) {
+        return setResult(code, msg, data,reqUserId);
+    }
+
     // 返回错误，可以传msg
     public BaseResponse<T> setResultError(String msg,String reqUserId) {
         return setResult(BaseConstants.HTTP_RES_CODE_500, msg, null,reqUserId);

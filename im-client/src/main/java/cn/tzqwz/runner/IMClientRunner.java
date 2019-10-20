@@ -1,5 +1,7 @@
 package cn.tzqwz.runner;
 
+import cn.tzqwz.im.client.IMClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -9,6 +11,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class IMClientRunner implements ApplicationRunner {
+
+    @Autowired
+    private IMClient imClient;
+
     /**
      *客户端启动后登陆IM
      * @param args
@@ -16,6 +22,12 @@ public class IMClientRunner implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        new Thread( new Runnable(){
 
+            @Override
+            public void run() {
+                imClient.start();
+            }
+        }).start();
     }
 }

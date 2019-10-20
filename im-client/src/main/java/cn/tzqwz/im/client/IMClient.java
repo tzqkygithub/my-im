@@ -30,7 +30,6 @@ public class IMClient {
     /**
      * 启动客户端
      */
-    @PostConstruct
     public void start(){
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
         try{

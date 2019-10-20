@@ -5,6 +5,16 @@ server:
 spring:
   application:
     name: im-forward-route
+  ###redis配置信息
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 100
+        min-idle: 1
+        max-active: 1000
+        max-wait: -1
 ###zookeeper配置信息
 zk:
   ###连接地址

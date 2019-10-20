@@ -8,3 +8,7 @@ im:
     port: 10234
 
 ##路由地址
+rote:
+  web:
+   server:
+      url: http://127.0.0.1:8400

@@ -25,3 +25,9 @@ zk:
   ###路由节点信息
   root:
     node: /route
+route:
+  algorithm:
+    ###轮询机制
+    way: cn.tzqwz.common.route.algorithm.loop.LoopRouteHandle
+    ###随机路由
+    ##way: cn.tzqwz.common.route.algorithm.random.RandomRouteHandle

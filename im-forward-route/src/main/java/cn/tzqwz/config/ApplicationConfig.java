@@ -22,6 +22,9 @@ public class ApplicationConfig {
     @Value("${zk.root.node}")
     private String zkRootNode;
 
+    @Value("${route.algorithm.way}")
+    private String routeAlgorithmWay;
+
     public Integer getZkTimeOut() {
         return zkTimeOut;
     }
@@ -32,6 +35,10 @@ public class ApplicationConfig {
 
     public String getZkRootNode() {
         return zkRootNode;
+    }
+
+    public String getRouteAlgorithmWay() {
+        return routeAlgorithmWay;
     }
 
     public Integer getWebServerPort() {

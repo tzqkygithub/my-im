@@ -1,5 +1,6 @@
 package cn.tzqwz.config;
 
+import cn.tzqwz.common.route.algorithm.RouteAlgorithmHandle;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -73,6 +74,22 @@ public class BeanConfig {
         template.setHashValueSerializer(jackson2JsonRedisSerializer);
         template.afterPropertiesSet();
         return template;
+    }
+
+    /**
+     * 创建路由算法对象
+     * @return
+     */
+    @Bean
+    public RouteAlgorithmHandle getRouteAlgorithmHandle(){
+        Object routeAlgorithmObj = null;
+        try {
+            Class<?> routeObjClass = Class.forName(applicationConfig.getRouteAlgorithmWay());
+           routeAlgorithmObj = routeObjClass.newInstance();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return (RouteAlgorithmHandle) routeAlgorithmObj;
     }
 
 

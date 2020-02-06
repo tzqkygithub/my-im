@@ -34,6 +34,7 @@ public class BaseController<T> {
         return setResult(BaseConstants.HTTP_RES_CODE_200, BaseConstants.HTTP_RES_CODE_200_VALUE, null,reqUserId);
     }
 
+
     // 返回成功，沒有data值
     public BaseResponse<T> setResultSuccess(String msg,String reqUserId) {
         return setResult(BaseConstants.HTTP_RES_CODE_200, msg, null,reqUserId);

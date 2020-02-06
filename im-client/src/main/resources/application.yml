@@ -1,14 +1,14 @@
 ##客户端web服务端口
 server:
-  port: 8100
+  port: 8200
 ###IM服务器地址及端口号
 im:
   server:
     address: 127.0.0.1
-    port: 10234
+    port: 10230
 
 ##路由地址
-rote:
+route:
   web:
    server:
-      url: http://127.0.0.1:8400
+       url: http://127.0.0.1:8400

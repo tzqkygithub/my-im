@@ -5,8 +5,8 @@ import cn.tzqwz.common.base.res.BaseResponse;
 import cn.tzqwz.common.base.res.NULLResData;
 import cn.tzqwz.common.dto.input.LoginImInDTO;
 import cn.tzqwz.common.dto.input.RegisterIMInDTO;
+import cn.tzqwz.common.utils.OKHttpUtils;
 import cn.tzqwz.service.RoteRequest;
-import cn.tzqwz.utils.OKHttpUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPObject;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RoteRequestImpl implements RoteRequest {
 
-    @Value("${rote.web.server.url}")
+    @Value("${route.web.server.url}")
     private String roteWebServerUrl;
 
     @Autowired

@@ -1,6 +1,6 @@
 ##Web服务程序端口号
 server:
-  port: 8500
+  port: 8800
 ###IM服务的名称
 spring:
   application:
@@ -8,7 +8,7 @@ spring:
 ###IM通信服务器端端口号
 im:
   server:
-    port: 10235
+    port: 10234
 ##zookeeper配置信息
 zk:
   ###连接地址
@@ -19,3 +19,4 @@ zk:
   ###路由节点信息
   root:
     node: /route
+

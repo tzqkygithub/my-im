@@ -31,3 +31,11 @@ route:
     way: cn.tzqwz.common.route.algorithm.loop.LoopRouteHandle
     ###随机路由
     ##way: cn.tzqwz.common.route.algorithm.random.RandomRouteHandle
+###多线程配置
+threadPool:
+    ###核心线程数
+    corePoolSize: 10
+    ###最大线程数
+    maxPoolSize: 20
+    ##  队列容量
+    queueCapacity: 16

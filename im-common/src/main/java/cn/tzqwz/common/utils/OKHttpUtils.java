@@ -1,7 +1,6 @@
-package cn.tzqwz.utils;
+package cn.tzqwz.common.utils;
 
 
-import cn.tzqwz.im.client.IMClient;
 import com.alibaba.fastjson.JSONObject;
 import okhttp3.*;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -24,7 +23,7 @@ public class OKHttpUtils {
     @Autowired
     private OkHttpClient okHttpClient;
 
-    private  MediaType mediaType = MediaType.parse("application/json;charset=utf-8");
+    private MediaType mediaType = MediaType.parse("application/json;charset=utf-8");
 
     /**
      * POST请求发送JSON数据

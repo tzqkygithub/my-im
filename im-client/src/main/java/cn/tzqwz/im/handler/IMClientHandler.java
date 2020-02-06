@@ -16,6 +16,7 @@ public class IMClientHandler extends SimpleChannelInboundHandler<IMResponseProto
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, IMResponseProto.IMResponse imResponse) throws Exception {
         LOGGER.info("服务器端:"+imResponse.getResmsg());
+
     }
 
     /**

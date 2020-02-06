@@ -24,7 +24,7 @@ public class LoopRouteHandle implements RouteAlgorithmHandle {
         if(serverList.size()==0){
             throw new RuntimeException("IM服务器列表不能为空");
         }
-        //2.算出索引
+        //3.算出索引
         Long index = atomicLong.incrementAndGet() % serverList.size();
         if(index<0l){
            index = 0l;

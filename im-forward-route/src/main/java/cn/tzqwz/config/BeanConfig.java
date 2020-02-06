@@ -15,6 +15,9 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
+import java.util.concurrent.Executor;
 
 /**
  * bean注入到spring容器当中
@@ -92,5 +95,12 @@ public class BeanConfig {
         return (RouteAlgorithmHandle) routeAlgorithmObj;
     }
 
-
+    @Bean
+    public ThreadPoolTaskExecutor executor(){
+        ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
+        threadPoolTaskExecutor.setCorePoolSize(applicationConfig.getThreadCorePoolSize());
+        threadPoolTaskExecutor.setMaxPoolSize(applicationConfig.getThreadMaxPoolSize());
+        threadPoolTaskExecutor.setQueueCapacity(applicationConfig.getThreadQueueCapacity());
+        return threadPoolTaskExecutor;
+    }
 }

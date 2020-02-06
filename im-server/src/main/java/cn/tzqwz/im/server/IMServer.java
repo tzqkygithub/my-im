@@ -1,12 +1,18 @@
 package cn.tzqwz.im.server;
 
+import cn.tzqwz.common.base.constants.CommandType;
+import cn.tzqwz.common.dto.input.SendPushInDTO;
+import cn.tzqwz.common.im.protocolbuf.IMRequestProto;
 import cn.tzqwz.config.ApplicationConfig;
 import cn.tzqwz.im.init.IMServerInitializer;
+import cn.tzqwz.im.session.SocketSessionHolder;
 import cn.tzqwz.zk.IMServerRegistration;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,7 +70,30 @@ public class IMServer {
             boosGroup.shutdownGracefully();
             workGroup.shutdownGracefully();
         }
+    }
 
-
+    /**
+     * 向客户端发送信息
+     */
+    public void sendPush(SendPushInDTO sendPushInDTO){
+        String receiverUserId = sendPushInDTO.getReceiverUserId();
+        SocketChannel socketChannel = SocketSessionHolder.getChannel(receiverUserId);
+        if(socketChannel==null){
+            LOGGER.error("客户端【{}】不在线",receiverUserId);
+            return;
+        }
+        //封装报文信息
+        IMRequestProto.IMRequest imRequest = IMRequestProto.IMRequest.newBuilder()
+                .setRequestid(receiverUserId)
+                .setReqmsg(sendPushInDTO.getMsg())
+                .setReqtype(CommandType.MSG_TYPE).build();
+        ChannelFuture future = socketChannel.writeAndFlush(imRequest);
+        //给定一个监听器
+        future.addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                LOGGER.info("服务器端手动发送信息成功,MSG={}",sendPushInDTO.getMsg());
+            }
+        });
     }
 }

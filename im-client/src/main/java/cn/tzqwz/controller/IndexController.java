@@ -3,7 +3,6 @@ package cn.tzqwz.controller;
 import cn.tzqwz.common.base.controller.BaseController;
 import cn.tzqwz.common.base.res.BaseResponse;
 import cn.tzqwz.common.base.res.NULLResData;
-import cn.tzqwz.common.dto.input.LoginImInDTO;
 import cn.tzqwz.common.dto.input.RegisterIMInDTO;
 import cn.tzqwz.service.RoteRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +31,7 @@ public class IndexController extends BaseController {
         return response;
 
     }
+
+
 
 }

@@ -1,4 +1,4 @@
-package cn.tzqwz.config;
+package cn.tzqwz.common.config;
 
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
